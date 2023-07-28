@@ -1,0 +1,260 @@
+/* @theme yj1 */
+
+@charset "UTF-8";
+@import 'gaia';
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900|Roboto+Mono:400,700&display=swap');
+@import '~highlight.js/styles/sunburst';
+
+:root {
+    padding:90px 50px;
+    background-color: #fff !important;
+    --background-color: #d5103b;
+}
+
+section header {
+    width: 500%;
+    height: 65px;
+    background-image: linear-gradient(to right, var(--background-color), #fff);
+    padding: 15px 0 15px 30px;
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 35px;
+    color: #fff;
+    Z-index: 100;
+}
+section footer {
+    width: 200%;
+    height: 25px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    background-image: linear-gradient(to right, var(--background-color), #ffffff00);
+    padding: 0 0 0 30px;
+    font-size: 14px;
+    line-height: 25px;
+    color: #fff;
+    Z-index: 100;
+}
+section::after {
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    color: var(--background-color);
+    padding: 0;
+    height: 25px;
+    font-size:20px;
+    line-height:25px;
+}
+section h1 {
+    margin: 40px 0 20px 0;
+    line-height:40px;
+    font-size:30px;
+}
+section h2 {
+    font-size:25px;
+}
+section h3 {
+    font-size: 22px;
+}
+section h1 strong, 
+section h2 strong, 
+section h3 strong{
+    color: var(--background-color);
+    font-weight: 800;
+}
+section h1 code, 
+section h2 code {
+    font-size: inherit;
+    font-family: inherit;
+    background-color: var(--background-color);;
+    color: #fff;
+    padding: 3px 10px;
+}
+section h3 code {
+
+    font-size: inherit;
+    font-family: inherit;
+}
+code {
+    color:var(--background-color);
+    background-color:#e3e3e3;
+    padding:3px 10px;
+    border-radius:10px;
+    margin: 1px;
+}
+section p {
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+section  p strong {
+    color: var(--background-color);
+}
+section p code {
+    font-size: 16px;
+    padding: 1px 6px;
+
+}
+section ul {
+    margin:0;
+    font-size: 18px;
+    list-style: none;
+}
+section ul li::before {
+    content:"◉ ";
+    color: var(--background-color);
+    margin-left: -16px;
+}
+section ol {
+    margin: 0;
+    font-size: 18px;
+    list-style: none; 
+    counter-reset: li;
+}
+section ol li {
+    counter-increment: li;
+}
+section ol li::before {
+    content: counter(li); 
+    color: var(--background-color);
+    display: inline-block; 
+    width: 1em;
+    margin-left: -16px;
+    font-weight: 600;
+}
+h4, h5 {
+    display: none;
+}
+h6 {
+    color: #ffffff00;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
+}
+h6::after {
+    content: "一个空行";
+}
+blockquote {
+    margin: 20px 2px;
+    padding: 10px;
+    border-left: var(--background-color) 4px solid;
+    background: #f2f2f2cc;
+    border-radius: 0 10px 10px 0;
+}
+blockquote::before, 
+blockquote::after {
+    content: '';
+}
+
+
+/* 封面页 page.cover */
+section.cover {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+section.cover h1, 
+section.cover h2, 
+section.cover h3, 
+section.cover p {
+    text-align: center;
+    color: _color;
+}
+section.cover h1 {
+    font-size:60px;
+    margin-bottom: 30px;
+}
+section.cover h2 {
+    font-size:30px;
+    margin-bottom: 10px;
+}
+section.cover h3 {
+    font-size:20px;
+    margin-bottom: 10px;
+}
+section.cover h6 {
+    line-height: 40px;
+}
+
+/* 插图设置 */
+section p:has(img) {
+    color: #ffffff00;
+}
+
+/* 文左图右两列 p-col-right */
+section.p-col-right p:has(img) {
+    position:absolute;
+    right: 60px;
+    top: 90px;
+    max-width: calc( ( 100% - 160px ) * 0.4 );
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: #ffffff00;
+    overflow: hidden;
+}
+
+section.p-col-right > h1,
+section.p-col-right > h2,
+section.p-col-right > h3,
+section.p-col-right > p,
+section.p-col-right > blockquote,
+section.p-col-right > ul,
+section.p-col-right > ol {
+    max-width: calc( ( 100% - 160px ) * 0.6 );
+}
+
+/* 图左文右两列 p-col-left */
+section.p-col-left p:has(img) {
+    margin-left: 0;
+    position:absolute;
+    left: 60px;
+    top: 90px;
+    max-width: calc( ( 100% - 160px ) * 0.4 );
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #ffffff00;
+    overflow: hidden;
+}
+
+section.p-col-left > h1,
+section.p-col-left > h2,
+section.p-col-left > h3,
+section.p-col-left > p,
+section.p-col-left > blockquote,
+section.p-col-left > ul,
+section.p-col-left > ol {
+    margin-left: 500px;
+    max-width: calc( ( 100% - 160px ) * 0.6 );
+
+}
+
+/* 文左图右两列 p-bg-right */
+section.p-bg-right p:has(img) {
+    position:absolute;
+    right: 0px;
+    top: 65px;
+    max-width: calc( ( 100% - 110px ) * 0.4 );
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: #ffffff00;
+    overflow: hidden;
+    margin: 0;
+}
+section.p-bg-right p img {
+    height: 630px;
+    opacity: 0.5;
+}
+
+section.p-bg-right > h1,
+section.p-bg-right > h2,
+section.p-bg-right > h3,
+section.p-bg-right > p,
+section.p-bg-right > blockquote,
+section.p-bg-right > ul,
+section.p-bg-right > ol {
+    max-width: calc( ( 100% - 110px ) * 0.6 );
+}
